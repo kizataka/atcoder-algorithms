@@ -36,3 +36,13 @@ def is_prime(n):
             return False
         f += 2
     return True
+
+# エラトステネスの篩
+def eratosthenes(max_num):
+    is_prime = [True] * (max_num + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(max_num**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i * 2, max_num + 1, i):
+                is_prime[j] = False
+    return is_prime
