@@ -39,10 +39,10 @@ def is_prime(n):
 
 # エラトステネスの篩（計算量はO(nloglogn)）
 def eratosthenes(max_num):
-    is_prime = [True] * (max_num + 1)
-    is_prime[0] = is_prime[1] = False
-    for i in range(2, int(max_num**0.5) + 1):
+    is_prime = [True] * (max_num + 1)  # 初期状態は全てTrueにしておく
+    is_prime[0] = is_prime[1] = False  # 0と1は素数ではないのでFalseにしておく
+    for i in range(2, int(max_num**0.5) + 1):  # 2からmax_numの平方根までの数まで
         if is_prime[i]:
             for j in range(i * 2, max_num + 1, i):
-                is_prime[j] = False
+                is_prime[j] = False  # Trueになっていた数の倍数全てをFalseに
     return is_prime
