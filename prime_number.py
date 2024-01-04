@@ -22,7 +22,7 @@ def prime_factorize(n):
     return prime_numbers
 
 
-# 素数判定の関数
+# 素数判定の関数（計算量はO(√n)）
 def is_prime(n):
     if n <= 1:
         return False
@@ -37,7 +37,7 @@ def is_prime(n):
         f += 2
     return True
 
-# エラトステネスの篩
+# エラトステネスの篩（計算量はO(nloglogn)）
 def eratosthenes(max_num):
     is_prime = [True] * (max_num + 1)
     is_prime[0] = is_prime[1] = False
