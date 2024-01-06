@@ -1,4 +1,4 @@
-# Bubbleソート
+# Bubbleソート(O(n^2))
 def bubble_sort(numbers):
     n = len(numbers)
     for i in range(n):
@@ -8,7 +8,7 @@ def bubble_sort(numbers):
     return numbers
 
 
-# Selectionソート
+# Selectionソート(O(n^2))
 def selection_sort(numbers):
     n = len(numbers)
     for i in range(n):
@@ -20,7 +20,7 @@ def selection_sort(numbers):
     return numbers
 
 
-# Insertionソート
+# Insertionソート(O(n^2))
 def insertion_sort(numbers):
     n = len(numbers)
     for i in range(1, n):
@@ -33,7 +33,7 @@ def insertion_sort(numbers):
     return numbers
 
 
-# Quickソート
+# Quickソート(O(nlogn))
 def partition(numbers, low, high):
     i = low - 1
     pivot = numbers[high]
@@ -67,11 +67,12 @@ def quick_sort_2(numbers):
     return left + [pivot] + right
 
 
-# Mergeソート
+# Mergeソート(O(nlogn))
 def merge_sort(numbers):
     if len(numbers) <= 1:
         return numbers
     
+    # リストを二つに分割
     center = len(numbers) // 2
     left = numbers[:center]
     right = numbers[center:]
@@ -79,7 +80,9 @@ def merge_sort(numbers):
     merge_sort(left)
     merge_sort(right)
 
+    # 並び替え処理
     i = j = k = 0
+    # 左右のリストを調べ、小さい方の要素から順に結合リストに追加
     while i < len(left) and j < len(right):
         if left[i] <= right[j]:
             numbers[k] = left[i]
@@ -89,11 +92,13 @@ def merge_sort(numbers):
             j += 1
         k += 1
 
+    # 左リストに残った要素を結合リストに追加
     while i < len(left):
         numbers[k] = left[i]
         i += 1
         k += 1
 
+    # 右リストに残った要素を結合リストに追加
     while j < len(right):
         numbers[k] = right[j]
         j += 1
