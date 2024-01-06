@@ -44,7 +44,7 @@ def partition(numbers, low, high):
     numbers[i+1], numbers[high] = numbers[high], numbers[i+1]
     return i+1
 
-def quikck_sort(numbers):
+def quikck_sort_1(numbers):
     def _quick_sort(numbers, low, high):
         if low < high:
             partition_index = partition(numbers, low, high)
@@ -52,6 +52,19 @@ def quikck_sort(numbers):
             _quick_sort(numbers, partition_index+1, high)
     _quick_sort(numbers, 0, len(numbers)-1)
     return numbers
+
+def quick_sort_2(numbers):
+    if len(numbers) <= 1:
+        return numbers
+    
+    pivot = numbers.pop(0)
+    left = [i for i in numbers if i <= pivot]
+    right = [i for i in numbers if i > pivot]
+
+    left = quick_sort_2(left)
+    right = quick_sort_2(left)
+
+    return left + [pivot] + right
 
 
 # Mergeソート
