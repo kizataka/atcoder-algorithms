@@ -27,7 +27,7 @@ def insertion_sort(numbers):
         temp = numbers[i]
         j = i - 1
         while j >= 0 and numbers[j] > temp:
-            numbers[j+1] = numbers[j]
+            numbers[j+1] = numbers[j]  # ずらしていく
             j -= 1
         numbers[j+1] = temp
     return numbers
