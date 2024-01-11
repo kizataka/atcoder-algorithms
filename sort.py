@@ -62,7 +62,7 @@ def quick_sort_2(numbers):
     right = [i for i in numbers if i > pivot]
 
     left = quick_sort_2(left)
-    right = quick_sort_2(left)
+    right = quick_sort_2(right)
 
     return left + [pivot] + right
 
